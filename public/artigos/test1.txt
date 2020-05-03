@@ -1,0 +1,31 @@
+  SciELO	The Scientific Electronic Library Online - SciELO is an electronic library covering a selected collection of Brazilian scientific journals.
+
+		The library is an integral part of a project being developed by FAPESP - Fundação de Amparo à Pesquisa do Estado de São Paulo, in partnership with BIREME - the Latin American and Caribbean Center on Health Sciences Information. Since 2002, the Project is also supported by CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico.
+
+		The Project envisages the development of a common methodology for the preparation, storage, dissemination and evaluation of scientific literature in electronic format.
+
+		As the project develops, new journal titles are being added in the library collection.	 
+
+
+
+		 about this site   	
+
+
+		This is the home page of SciELO Brasil Site.
+
+		The objective of the site is to implement an electronic virtual library, providing full access to a collection of serial titles, a collection of issues from individual serial titles, as well as to the full text of articles. The access to both serial titles and articles is available via indexes and search forms.
+
+		SciELO site is an integral part of the FAPESP/BIREME/CNPq Project and it is an application of the methodology being developed by the project, particularly the Internet Interface module.
+
+		The site will be constantly updated both in form and content, according to the project's advancements.	 
+
+
+
+		 help   	
+
+
+		SciELO interface provides access to its serials collection via an alphabetic list of titles or a subject list or a search form by word of serial titles, publisher names, city of publication and subject.
+
+		The interface also provides access to the full text of articles via author index or subject index, or by a search form on article elements such as author names, words from title, subject, words from the full text and publication year.
+
+		Click an hypertext link at the top to call the corresponding access page.
