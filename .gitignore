@@ -1,6 +1,9 @@
 /node_modules
 /public/hot
 /public/storage
+/public/artigos
+/public/img
+/public/pags_escritor
 /storage/*.key
 /vendor
 .env
