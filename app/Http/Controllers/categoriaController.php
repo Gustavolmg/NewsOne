@@ -34,6 +34,7 @@ class categoriaController extends Controller
 
     	$corousel = 
     	artigo::inRandomOrder()
+        ->orderBy('created_at', 'desc')
     	->limit(3)
     	->get();
 

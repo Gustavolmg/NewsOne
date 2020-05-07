@@ -35,9 +35,7 @@ Route::post('busca','searchController@buscar')
 	->name('busca');
 
 // Pagina Sobre nos
-Route::get('sobre_nos', function() {
-    return view('sobre_nos');
-})
+Route::get('sobre_nos','Sobre_nosController@header')
 	->name('sobre_nos');
 
 // Pagina dos artigos em destaque
