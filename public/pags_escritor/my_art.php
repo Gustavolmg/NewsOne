@@ -1,4 +1,7 @@
-<form action="#" method="POST" accept-charset="utf-8">
+<form action="<?php echo $_POST['upload']; ?>" method="post" accept-charset="utf-8">
+
+    <input type="hidden" name="_token" value="<?php  echo $_POST['csrf']; ?>">
+
 	<div class="form-group">
 		<label for="sel_art" class="h5">Seus artigos | Vizualizações</label>
 		<select name="artigos_teus" class="form-control" id="sel_art" multiple required>

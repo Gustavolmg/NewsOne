@@ -101,7 +101,7 @@
 
 				case 'my_art':
 					// statements_1
-					$("#text_escritor").load( local , { 'ar' : ar } );
+					$("#text_escritor").load( local , { 'ar' : ar, 'upload' : '{{route('artigo_re')}}', 'csrf' : '{{ csrf_token() }}' } );
 				break;
 
 				case 'make_art':

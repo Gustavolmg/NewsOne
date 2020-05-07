@@ -13,11 +13,6 @@
 	</div>
 
 	<div class="form-group">
-		<label for="categoria">Categoria:</label>
-		<input type="text" class="form-control" name="art_cat" placeholder="Ex: Drama" id="categoria" required>
-	</div>
-
-	<div class="form-group">
 		<input type="submit" class="form-control btn-info" name="ver_make_art" value="Iniciar Artigo">
 	</div>
 

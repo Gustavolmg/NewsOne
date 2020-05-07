@@ -42,7 +42,7 @@
 								<a href="#" class=" text-dark" style="text-decoration: none;">
 									
 									<div class="blockquote-footer text-right">
-										NOME DO AUTOR
+										{{$element['name']}}
 									</div>
 
 								</a>

@@ -13,7 +13,7 @@
 @endsection
 				
 @section('subtitulo-art')
-		<input type="text" name="artigo_subtitulo" class="form-control form-control-sm col-md-4 small" value="{{$artigo['sub_titulo']}}" placeholder="Seu subtitulo">
+		<input type="text" name="artigo_subtitulo" class="form-control form-control-sm small" value="{{$artigo['sub_titulo']}}" placeholder="Seu subtitulo">
 @endsection
 	
 @section('img-art')

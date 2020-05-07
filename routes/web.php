@@ -20,8 +20,11 @@ Route::get('/', 'homeController@entrada')
 	->name('home');
 
 // Pagina dos artigos postados
-Route::get('Artigo/{num?}', 'artigocontroller@art')
+Route::get('Artigo/{num}', 'artigocontroller@art')
 	->name('artigo');
+// Pagina que leva do escritor para os artugos postados
+Route::post('Artigo/v', 'artigocontroller@vi')
+	->name('artigo_re');
 
 // Pagina das cateorias de artigos
 Route::get('categoria/{cat}', 'categoriaController@result')

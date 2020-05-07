@@ -17,7 +17,12 @@ class escritorController extends Controller
         $usuario = session('usuario') ?? null;
         $artigos = session('ar');
 
-    	return view('Escritor', compact('user', 'usuario', 'artigos'));
+        $corousel = 
+        artigo::inRandomOrder()
+        ->limit(3)
+        ->get();
+
+    	return view('Escritor', compact('user', 'usuario', 'artigos', 'corousel'));
     }
 
     public function login(Request $user)

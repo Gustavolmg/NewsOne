@@ -10,7 +10,9 @@ class categoriaController extends Controller
 
     public function result($cat,  request $busca){
 
-		$news = artigo::where('categoria', $cat);
+		$news = artigo::join('users','artigos.id_usuario','=', 'users.id_usuario')
+    	->select('users.name', 'artigos.*')
+		->where('categoria', $cat);
 
 		if (!empty($busca['ordem_cat'])) {
 			$news->orderBy('created_at', $busca['ordem_cat']);
@@ -30,8 +32,15 @@ class categoriaController extends Controller
 		$news = $news->limit(12)->get();
 
 
+    	$corousel = 
+    	artigo::inRandomOrder()
+    	->limit(3)
+    	->get();
 
-    	return view("categoria", compact('news','cat','busca'));
+
+
+
+    	return view("categoria", compact('news','cat','busca', 'corousel'));
 
     }
 }

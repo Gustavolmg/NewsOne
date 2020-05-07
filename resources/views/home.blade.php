@@ -23,7 +23,7 @@
 				@foreach ($news as $element)
 					<tr >
 						<td class="bg-light col-1" >
-							<a href="{{ route('artigo').'/'.$element['id_art'] }}" class=" text-dark" style="text-decoration: none;">
+							<a href="{{ route('artigo', ['num' => $element['id_art']]) }}" class=" text-dark" style="text-decoration: none;">
 								<img src="{{ asset('img/'.$element['img_art']) }}" class="img-thumbnail" align="left" width="100" height="100">
 
 								<div class="font-italic font-weight-bold"> {{$element['titulo']}} </div>
@@ -36,7 +36,7 @@
 							<a href="#" class=" text-dark" style="text-decoration: none;">
 								
 								<div class="blockquote-footer text-right">
-									NOME DO AUTOR
+									{{$element['name']}}
 								</div>
 
 							</a>

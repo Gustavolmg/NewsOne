@@ -10,12 +10,21 @@ class destaqueController extends Controller
     public function novidade()
     {
     	$news = 
-    	artigo::orderBy('created_at', 'desc')
+    	artigo::join('users','artigos.id_usuario','=', 'users.id_usuario')
+        ->select('users.name', 'artigos.*')
+        ->orderBy('created_at', 'desc')
     	->orderBy('views','desc')
     	->limit(12)
     	->get();
 
-    return view('destaque', compact('news'));
+
+        $corousel = 
+        artigo::inRandomOrder()
+        ->limit(3)
+        ->get();
+
+
+    return view('destaque', compact('news', 'corousel'));
     	
     }
 }

@@ -48,9 +48,10 @@
 
 		 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 		          <a class="dropdown-item" href="{{ route('categoria', ['cat' => 'beleza']) }}">Beleza</a>
-		          <a class="dropdown-item" href="{{ route('categoria', ['cat'	 => 'transito']) }}">Trânsito</a>
+		          <a class="dropdown-item" href="{{ route('categoria', ['cat' => 'transito']) }}">Trânsito</a>
 		          <a class="dropdown-item" href="{{ route('categoria', ['cat' => 'economia' ]) }}">Economia</a>
 		          <a class="dropdown-item" href="{{ route('categoria', ['cat' => 'educacao' ]) }}">Educação</a>
+		          <a class="dropdown-item" href="{{ route('categoria', ['cat' => 'tecnologia' ]) }}">Tecnologia</a>
 		          <a class="dropdown-item" href="{{ route('categoria', ['cat' => 'politica' ]) }}">Politica</a>
 		        </div>
 
@@ -91,27 +92,25 @@
 					    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 					  </ol>
 					  <div class="carousel-inner">
-					    <div class="carousel-item active">
-					      <img class="d-block w-100 slide" src="{{ asset('img/flash.jpg') }}" alt="Primeiro Slide">
-					     	 <div class="carousel-caption d-none d-md-block">
-							    <h5>Uso de drogas</h5>
-							    <p>É assim que é a cisão de uma pessoa que está usando drogas</p>
-						 	</div>
-					    </div>
-					    <div class="carousel-item">
-					      <img class="d-block w-100 slide" src="{{ asset('img/vidro.jpg') }}" alt="Segundo Slide">
-					     	 <div class="carousel-caption d-none d-md-block">
-							    <h5>Acidente de carro</h5>
-							    <p>Homem bate apos usar viagra pra ter uma viajem constante</p>
-						 	</div>
-					    </div>
-					    <div class="carousel-item">
-					      <img class="d-block w-100 slide" src="{{ asset('img/pedra.jpg') }}" alt="Terceiro Slide">
-					     	 <div class="carousel-caption d-none d-md-block">
-							    <h5>Mina de drogras</h5>
-							    <p>Esse é o local onde foi extraido as pedras de crack da crackolandia</p>
-						 	</div>
-					    </div>
+					  	
+					  	@php
+					  		$list = 1;
+					  	@endphp
+
+					  	@foreach ($corousel as $element)
+						    <div class="carousel-item <?php if($list == 1){ echo 'active';} ?>">
+						      <img class="d-block w-100 slide" src="{{ asset('img/'.$element['img_art']) }}" alt="{{$element['titulo']}} Slide">
+						     	 <div class="carousel-caption d-none d-md-block">
+								    <h5>{{$element['titulo']}}</h5>
+								    <p>{{$element['sub_titulo']}}</p>
+							 	</div>
+						    </div>
+						    @php
+						    	$list++;
+						    @endphp
+					  	@endforeach
+
+					  	
 					  </div>
 					  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
