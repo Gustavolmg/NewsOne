@@ -19,6 +19,7 @@ class escritorController extends Controller
 
         $corousel = 
         artigo::inRandomOrder()
+        ->orderBy('created_at','desc')
         ->limit(3)
         ->get();
 
@@ -86,6 +87,7 @@ class escritorController extends Controller
         $area = (isset(request()->cetegorias)) ? implode(", " ,request()->cetegorias) : session('usuario')['area'];
         $oldimg = user::select('img_p')->where('id_usuario', $usuario['id_usuario'])->get()->first();
         $newlogin = user::where('id_usuario', $usuario['id_usuario'])->get()->first();
+
 
         // Veridica se a imagem existe e assim guarda ela
          if (request()->image <> null) {
@@ -156,12 +158,18 @@ class escritorController extends Controller
     public function ver_make(Request $artigo)
     {   
 
+        $corousel = 
+        artigo::inRandomOrder()
+        ->orderBy('created_at','desc')
+        ->limit(3)
+        ->get();
+
         $artigo = [
             'titulo' => $artigo['art_nome'],
             'sub_titulo' => $artigo['art_descricao']
         ];
 
-        return view('make_art', compact('artigo'));
+        return view('make_art', compact('artigo', 'corousel'));
         // Fim do controller ver_make
     }
 
@@ -216,7 +224,67 @@ class escritorController extends Controller
 
     }
     // Fim da classe make()
+    
+    public function v_make_perfil()
+    {
+        $usuario = session('usuario') ?? null;
 
+        $corousel = 
+        artigo::inRandomOrder()
+        ->orderBy('created_at','desc')
+        ->limit(3)
+        ->get();
+
+        return view('register', compact('corousel', 'usuario'));
+    }
+    
+    public function make_perfil()
+    {
+        $email = filter_var(request()->email, FILTER_VALIDATE_EMAIL);
+
+        if (user::where('name', request()->usuario)->count() == 0) {
+
+            if (user::where('email', request()->email)->count() == 0) {
+
+                user::insert([
+                    'name' => request()->usuario,
+                    'area' => null,
+                    'img_p' => 'test.png',
+                    'email' => $email,
+                    'password' => Hash::make(request()->senha),
+                    'created_at' => date('Y-m-d G:i:s.u')
+                ]);
+
+                 $login = user::where('name', request()->usuario)->first();
+
+                 session([
+                    'usuario' =>[
+                                'id_usuario' => $login->id_usuario,
+                                'name' => $login->name,
+                                'area' => $login->area,
+                                'email' => $login->email,
+                                'art_feitos' => 0,
+                                'entrou' => $login->created_at,
+                                'img' => asset('img/'.$login->img_p)
+                            ]
+                ]);
+
+                return redirect()->route('escritor');
+                
+            }else {
+
+                return back()->withErrors(['error', 'Email de usuario já existe']);
+
+            }
+
+        }else {
+
+            return back()->withErrors(['error', 'Nome de usuario já existe']);
+
+        }
+
+    }
+    // Fim da classe make_perfil()
 
     // Fim do controller
 }

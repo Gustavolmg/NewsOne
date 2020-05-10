@@ -7,12 +7,14 @@
 
 @section('corpo')
 
+
 	<div class="row">
 			{{-- Validaçãp dp usuario --}}
 	@if ($usuario == null)
 
-	    	<div class="col-6 offset-3 rounded p-2">
-
+	    	<div class="col-6 offset-3 rounded p-2" id="case_login">
+	
+ 
 	    		<div class="h3 font-italic p-2">Login: </div>
 
 	    		<form action="{{ route('login') }}" method="POST" accept-charset="utf-8">
@@ -29,15 +31,19 @@
 	    				<input type="password" name="senha" placeholder="Sua senha" id="senha_E" class="form-control">
 	    			</div>
 
-	    			<div class="small">
-	    				<a href="#">Não está registrado?Clique aqui para Fazer cadastro.</a>
-	    			</div>
 
 	    			<input type="submit" name="confirmação" class="btn btn-block btn-light">
 
 	    		</form>
 
+	    			<div class="small">
+	    				<a href="{{ route('register') }}" class="btn btn-link btn-sm">Não está registrado?Clique aqui para Fazer cadastro!</a>
+	    			</div> 
+
 	    	</div>
+
+
+
 	@else
 
 	{{-- Começo da barra lateral --}}

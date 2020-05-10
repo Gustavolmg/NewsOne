@@ -36,5 +36,6 @@ class artigocontroller extends Controller
     {
 
         return redirect()->route('artigo', ['num' => request()['artigos_teus'] ]);
+        
     }
 }

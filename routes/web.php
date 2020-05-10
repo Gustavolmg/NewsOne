@@ -19,36 +19,57 @@ use App\artigo;
 Route::get('/', 'homeController@entrada')
 	->name('home');
 
+
+
 // Pagina dos artigos postados
 Route::get('Artigo/{num}', 'artigocontroller@art')
 	->name('artigo');
+
+
+
 // Pagina que leva do escritor para os artugos postados
 Route::post('Artigo/v', 'artigocontroller@vi')
 	->name('artigo_re');
+
+
 
 // Pagina das cateorias de artigos
 Route::get('categoria/{cat}', 'categoriaController@result')
 	->name('categoria');
 
+
+
 // Pagina de busca de artigos
 Route::post('busca','searchController@buscar')
 	->name('busca');
+
+
 
 // Pagina Sobre nos
 Route::get('sobre_nos','Sobre_nosController@header')
 	->name('sobre_nos');
 
+
+
 // Pagina dos artigos em destaque
 Route::get('destaques', 'destaqueController@novidade')
 	->name('destaque');
+
+
 
 // Pagina dos apoiadores
 Route::get('apoie', 'apoieController@header')
 	->name('apoie');
 
+
+
 // Pagina dos usuarios escritores
 Route::get('escritor', 'escritorController@home')
 	->name('escritor');
+
+Route::get('escritor/register','escritorController@v_make_perfil')->name('register');
+
+Route::post('escritor/register/make','escritorController@make_perfil')->name('register_m');
 
 Route::post('escritor/edt_perfil', 'escritorController@edt_perfil')->name('edt_perfil');
 
